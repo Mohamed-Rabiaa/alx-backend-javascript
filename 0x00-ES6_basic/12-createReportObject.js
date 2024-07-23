@@ -4,11 +4,7 @@ export default function createReportObject(employeesList) {
       ...employeesList,
     },
     getNumberOfDepartments(employeesList) {
-      let i = 0;
-      while (i < Object.keys(employeesList).length) {
-        i += 1;
-      }
-      return i;
+      return Object.keys(employeesList).length;
     },
   };
 }
