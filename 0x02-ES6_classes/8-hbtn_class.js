@@ -11,6 +11,6 @@ export default class HolbertonClass {
     if (arg === 'string') {
       return this._location;
     }
-    return NaN;
+    return null;
   }
 }
