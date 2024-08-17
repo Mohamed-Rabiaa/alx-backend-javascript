@@ -1,29 +1,35 @@
+//main.ts
+
 interface Student {
-  firstName : string;
+  firstName: string;
   lastName: string;
   age: number;
   location: string;
 }
 
+// Creating two students
 const student1: Student = {
-  firstName: 'Ahmed',
-  lastName: 'Khaled',
+  firstName: "John",
+  lastName: "Doe",
   age: 20,
-  location: 'Giza',
-  };
+  location: "New York"
+};
 
 const student2: Student = {
-  firstName: 'Rania',
-  lastName: 'Said',
-  age: 21,
-  location: 'Cairo',
-  };
+  firstName: "Jane",
+  lastName: "Smith",
+  age: 22,
+  location: "Los Angeles"
+};
 
+// Array of students
 const studentsList: Array<Student> = [student1, student2];
 
+// Creating the table
 const table = document.createElement('table');
 const tbody = document.createElement('tbody');
 
+// Loop through the array and append rows to the table
 studentsList.forEach((student) => {
   const row = document.createElement('tr');
   
