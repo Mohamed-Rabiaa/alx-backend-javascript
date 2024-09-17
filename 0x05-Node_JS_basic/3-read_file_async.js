@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function countStudents(path) {
+function countStudents(path, logToConsole = true) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, data) => {
       if (err) {
@@ -28,6 +28,7 @@ function countStudents(path) {
         });
 
         result += `Number of students: ${totalStudents}\n`;
+
         const fields = Object.entries(studentsByField);
         fields.forEach(([field, students], index) => {
           result += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`;
@@ -36,7 +37,11 @@ function countStudents(path) {
             result += '\n';
           }
         });
-        console.log(result);
+
+        if (logToConsole) {
+          console.log(result);
+        }
+
         resolve(result);
       }
     });

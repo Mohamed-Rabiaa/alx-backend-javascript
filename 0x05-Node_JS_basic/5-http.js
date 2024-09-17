@@ -11,7 +11,7 @@ const app = createServer((req, res) => {
     res.statusCode = 200;
     res.end('Hello Holberton School!');
   } else if (url === '/students' && method === 'GET') {
-    countStudents(process.argv[2])
+    countStudents(process.argv[2], false)
       .then((data) => {
         res.statusCode = 200;
         res.end(`This is the list of our students\n${data}`);
