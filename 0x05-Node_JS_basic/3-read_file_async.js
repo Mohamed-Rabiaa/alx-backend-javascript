@@ -28,11 +28,14 @@ function countStudents(path) {
         });
 
         result += `Number of students: ${totalStudents}\n`;
+        const fields = Object.entries(studentsByField);
+        fields.forEach(([field, students], index) => {
+          result += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`;
 
-        for (const [field, students] of Object.entries(studentsByField)) {
-          result += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}\n`;
-        }
-
+          if (index < fields.length - 1) {
+            result += '\n';
+          }
+        });
         console.log(result);
         resolve(result);
       }
