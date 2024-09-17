@@ -11,9 +11,10 @@ function countStudents(path) {
 
         let totalStudents = 0;
         const studentsByField = {};
+        let result = '';
 
         lines.forEach((line, index) => {
-          if (index === 0) return;
+          if (index === 0) return; // Skip the header line
 
           const [firstname, lastname, age, field] = line.split(',');
 
@@ -25,12 +26,15 @@ function countStudents(path) {
             studentsByField[field].push(firstname);
           }
         });
-        console.log(`Number of students: ${totalStudents}`);
+
+        result += `Number of students: ${totalStudents}\n`;
 
         for (const [field, students] of Object.entries(studentsByField)) {
-          console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+          result += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}\n`;
         }
-        resolve(true);
+
+        console.log(result);
+        resolve(result);
       }
     });
   });
