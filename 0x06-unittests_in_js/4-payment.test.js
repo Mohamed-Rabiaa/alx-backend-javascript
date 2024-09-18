@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const { expect } = require('chai');
 
 describe('sendPaymentRequestToApi', () => {
-  it('', () => {
+  it('Should Stubs the function Utils.calculateNumber to always return the same number 10', () => {
     const spy = sinon.spy(console, 'log');
     const stub = sinon.stub(Utils, 'calculateNumber');
 
