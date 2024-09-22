@@ -37,4 +37,8 @@ describe('calculateNumber', () => {
   it('Test Case 9', () => {
     assert.strictEqual(calculateNumber(0, 0), 0);
   });
+
+  it('Test Case 10', () => {
+    assert.strictEqual(calculateNumber(5.2, 5.2), 10);
+  });
 });
