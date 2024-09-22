@@ -4,7 +4,7 @@ class StudentsController {
   static getAllStudents(request, response) {
     response.statusCode = 200;
     let result = 'This is the list of our students\n';
-    const promise = readDatabase('database.csv');
+    const promise = readDatabase(process.argv[2]);
     promise.then((studentsByField) => {
       const fields = Object.entries(studentsByField);
       fields.forEach(([field, students], index) => {
@@ -30,7 +30,7 @@ class StudentsController {
       response.send('Major parameter must be CS or SWE');
     }
     let result = '';
-    const promise = readDatabase('database.csv');
+    const promise = readDatabase(process.argv[2]);
     promise.then((studentsByField) => {
       const students = studentsByField[major];
       console.log(`Students: ${students}`);
