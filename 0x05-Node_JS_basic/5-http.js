@@ -54,6 +54,10 @@ const app = createServer((req, res) => {
       .then((data) => {
         res.statusCode = 200;
         res.end(`This is the list of our students\n${data}`);
+      })
+      .catch((err) => {
+        res.statusCode = 404;
+        res.end(`This is the list of our students\n${err.message}`);
       });
   }
 });
